@@ -68,17 +68,23 @@ a:hover {
 }
 
 h1.title {
-  margin: 30px 20px 10px;
-  font-size: 60px;
+  margin: 0px 10px 10px;
+  font-size: 50px;
   font-weight: bold;
   font-style: italic;
   font-family:Georgia, serif;
-  text-align: center;
+  text-align: left;
 }
 
 .wrapper {
   width: 675px;
   margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.wrapper img {
+    width: 80px;
+    margin-bottom: -20px;
 }
 
 #container {
@@ -88,14 +94,13 @@ h1.title {
 }
 
 p.tagline {
-  padding: 20px 20px 0;
+  padding: 5px 10px 5px;
   color: #fff;
   font-size: 17px;
 }
 
 #main {
-  margin-top: 20px;
-  padding: 0 20px 90px;
+  padding: 5px 20px 90px;
   background-color: #fff;
 }
 
@@ -310,6 +315,15 @@ footer .owner {
   padding: 5px 15px;
   margin: -67px -10px 35px;
   color: #d6d6d6;
+}
+
+footer .copyright {
+    background: #222;
+    border: 5px solid #444;
+    padding: 5px 15px;
+    margin: -67px -10px 35px;
+    font-size: 10px;
+    color: #d6d6d6;
 }
 
 footer .creds small {
