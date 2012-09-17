@@ -84,7 +84,7 @@ h1.title {
 
 .wrapper img {
     margin-top: 10px;
-    width: 120px;
+    #width: 120px;
     margin-bottom: -10px;
 }
 
@@ -191,8 +191,8 @@ p.tagline {
 .current-section {
   position: fixed;
   top: 0;
-  left: 50%;
-  width: 693px;
+  left: 46%;
+  width: 793px;
   margin-left: -352px;
   background: #222;
   border: 5px solid #444;
