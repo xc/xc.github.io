@@ -94,6 +94,14 @@ h1.title {
   box-shadow: 0 0 5px #b1b1b1;
 }
 
+#container ul{
+}
+
+#container ul li{
+    display: inline;
+    padding: 8px;
+}
+
 p.tagline {
   padding: 5px 10px 5px;
   color: #fff;
