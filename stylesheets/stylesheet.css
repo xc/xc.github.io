@@ -97,6 +97,10 @@ h1.title {
 #container ul{
 }
 
+#container a:hover{
+    background-color: #cccccc
+}
+
 #container ul li{
     display: inline;
     padding: 8px;
