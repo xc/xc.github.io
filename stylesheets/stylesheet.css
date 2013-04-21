@@ -94,11 +94,13 @@ h1.title {
   box-shadow: 0 0 5px #b1b1b1;
 }
 
-#container ul{
+#container a{
+    padding: 3px;
 }
 
 #container a:hover{
-    background-color: #cccccc
+    background-color: #7a3d16;
+    text-decoration: none;
 }
 
 #container ul li{
