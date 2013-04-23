@@ -427,7 +427,7 @@ pre{
 }
 
 .markdown-body pre {
-  white-space:nowrap;
+  white-space:pre;
   padding: 10px 70px 10px 0;
   margin-left: -20px;
   margin-right: -20px;

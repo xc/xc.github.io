@@ -1,6 +1,8 @@
 Rest Example
 ===================
 
+Very simple example to explain how the auth and REST work.
+
 1. Create an authentication file:
 
 <div class="markdown-body"><pre id="rest1"></pre></div><script>loadFile( 'code/rest/restauth.php.txt', 'rest1' );</script>
@@ -10,3 +12,4 @@ Rest Example
 <div class="markdown-body"><pre id="rest2" ></pre></div><script>loadFile( 'code/rest/rest.php.txt', 'rest2' );</script>
 
 Question: Is there a good way to debug REST? The way I can find for now is to disable authentication (RequireAuthentication=disabled  in rest.ini) and everything is easier..
+
