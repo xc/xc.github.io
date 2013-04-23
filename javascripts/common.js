@@ -1,8 +1,13 @@
 //
-function loadFile( file, container )
+function loadFile( file, container, textMode )
 {
     $(document).ready(function(){
         $.get( file,function(data,status){
+            if( textMode !== null )
+            {
+                data = data.replace( '>', '&gt;' );
+                data = data.replace( '<', '&lt;' );
+            }
             $( "#"+container ).html( data );
         });
     });
