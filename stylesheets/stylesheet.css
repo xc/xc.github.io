@@ -50,8 +50,9 @@ table {
 /* Style */
 
 body {
-  font-size: 15px;
-  font-family: Arial, Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-family: "Open Sans", Sans-serif, Arial, 黑体;
+  color:#444;
   line-height: 1.5;
   background: #D1D1D1;
 }
@@ -81,7 +82,7 @@ h1.title {
 }
 
 .wrapper {
-  width: 780px;
+  width: 1000px;
   margin: 0 auto;
   background-color: #ffffff;
 }
@@ -207,11 +208,10 @@ p.tagline {
 }
 
 .current-section {
-  position: fixed;
+  #position: fixed;
   top: 0;
-  left: 46%;
-  width: 793px;
-  margin-left: -352px;
+  #width: 100%;
+  #margin-left: -352px;
   background: #222;
   border: 5px solid #444;
   color: #fff;
