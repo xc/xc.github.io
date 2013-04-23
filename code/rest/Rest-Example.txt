@@ -1,0 +1,12 @@
+Rest Example
+===================
+
+1. Create an authentication file:
+
+<div class="markdown-body"><pre id="rest1"></pre></div>
+<script>loadFile( 'code/rest/restauth.php.txt', 'rest1' );</script>
+
+2. Create request file
+
+<div class="markdown-body"><pre id="rest2" ></pre></div>
+<script>loadFile( 'code/rest/rest.php.txt', 'rest2' );</script>
