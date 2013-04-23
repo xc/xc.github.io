@@ -1,0 +1,13 @@
+Static web/blog system
+-------------------------
+
+I'm thinking the simplest way to create a webpage/blog system is still static html, so I think static system is still a good idea. :)
+- Storage: text, I use text for my notes. Some simple text like rst would be enough
+- Dynamic loading: Javascript
+- Commenting: social commeting system
+- Searching: Google
+- Image thumbnail: picasa?
+
+I saw there are some static generating systems, but I still think it's too complicated(for non-technical users and documents). Programmers like to read readme.txt, because it's the most simple one, I'm thinking the same idea: what you see in text is what you see in web.:)
+
+Anyone has similar thinking? :)
