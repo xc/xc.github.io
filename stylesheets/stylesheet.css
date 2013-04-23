@@ -208,7 +208,7 @@ p.tagline {
 }
 
 .current-section {
-  #position: fixed;
+  position: fixed;
   top: 0;
   #width: 100%;
   #margin-left: -352px;
@@ -217,6 +217,7 @@ p.tagline {
   color: #fff;
   opacity: 0;
   visibility: hidden;
+  display: none;
   -webkit-transition: opacity ease-in-out 0.3s;
 }
 
