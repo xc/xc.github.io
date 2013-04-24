@@ -1,5 +1,5 @@
 Static web/blog system
--------------------------
+========================
 
 I'm thinking the simplest way to create a webpage/blog system is still static html, so I think static system is still a good idea. :)
 - Storage: text, I use text for my notes. Some simple text like rst would be enough
