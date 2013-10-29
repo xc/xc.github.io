@@ -1,5 +1,5 @@
 Router as server
-==============
+========================
 
 I reinstalled a firmware my NetGear wireless server. The new firmware is actually a simplified linux, where there are VPN server, FTP, media, NAS.
 
