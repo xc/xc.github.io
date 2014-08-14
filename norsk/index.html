@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>
-Mobil versjon
+Norsk ordbok
 </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -23,11 +23,6 @@ TODO: 1. auto prompt
 
 **/
 
-function request( url, callback )
-{
- var yURL = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + url + '"') + '&format=xml&callback='+callback;
- $.ajax( {url: yURL, dataType:'jsonp'} );
-}
 
 function getParams()
 {
@@ -41,7 +36,14 @@ function getParams()
 }
 
 
-var tip = '';
+
+function request( url, callback )
+{
+ var yURL = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + url + '"') + '&format=xml&callback='+callback;
+ $.ajax( {url: yURL, dataType:'jsonp'} );
+}
+
+var number = '';
 
 function renderMain( data )
 {
@@ -50,8 +52,7 @@ $( function(){
 var html = $.parseHTML( jsonPConvert( data ) );
 		var content =$( html ).find( '#byttutBM' );
  	   	//adjust result
- 		tips = content.find( '.oppsgramordklassevindu' ).find( 'div' );
-	    tips.html( '' );
+ 		var tips = content.find( '.oppsgramordklassevindu' ).parent();
     	tips.hide();
   		$( '#result-table' ).html( content.html() );
 
@@ -62,13 +63,15 @@ var html = $.parseHTML( jsonPConvert( data ) );
 function renderTip( data )
 {
 $( function(){
+     var tip = 	$( '#opp_' + number);
 	 tip.html( jsonPConvert( data ) );
+   	 tip.show();
 } );
 }
 
 
 function jsonPConvert( data) {
-    return data.results[0].replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');         
+    return data.results[0];         
 }
 
 $( document ).ready( function(){
@@ -87,8 +90,13 @@ $( document ).ready( function(){
 
 function vise_fullformer( wordNumber )
 {
+number = wordNumber;
 $( function(){
-	tip = $( '#opp_' + wordNumber);	 
+	var tip = $( '#opp_' + wordNumber);
+	if( !tip.hasClass( 'tip' ) )
+	{
+		tip.addClass( 'tip' );
+	}
     if( tip.is(":visible") )
     {
     	tip.hide();
@@ -96,9 +104,8 @@ $( function(){
     else
     {
 	var url = "http://www.nob-ordbok.uio.no/perl/bob_hente_paradigme.cgi?lid=" + wordNumber ;
-	tip.show();
     request( url, 'renderTip' );
-	 }
+	}
 });
 }
 
@@ -126,8 +133,24 @@ input
 
 .oppsgramordklasse
 {
-  text-decoration:underline;
+  text-decoration:none;
   cursor: hand;
+  border-width: 1px;
+  padding: 2px 10px 2px 10px;
+  background-color: #dddddd;
+  font-size: 1.5em;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.oppsgramordklasse:hover
+{
+   text-decoration:none !important;
+}
+
+#result
+{
+	margin-top: 10px;
 }
 
 #result-table
@@ -137,7 +160,7 @@ input
   width: 100%;
 }
 
-#result-table tr:first-child
+#result-table td.my, #result-table td.pa
 {
   display: none;
 }
@@ -150,6 +173,26 @@ input
 .artikkelformat.utvidet.tiptip
 {
 	display: none;
+}
+
+.paradigmetabell p
+{
+	margin: 0px;
+}
+
+.paradigmetabell
+{
+	margin: 5px 3px 5px 2px !important;
+}
+
+.tip
+{
+	position: absolute;
+	margin-top: 2px;
+	left: 0px;
+	width: 100%;
+	background-color: #ffffff;
+	overflow: scroll;
 }
 
 .copyright
