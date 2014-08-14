@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>
@@ -39,7 +39,7 @@ function getParams()
 
 function request( url, callback )
 {
- var yURL = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + url + '"') + '&format=xml&callback='+callback;
+ var yURL = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + url + '" and compat="html5"') + '&format=xml&callback='+callback;
  $.ajax( {url: yURL, dataType:'jsonp'} );
 }
 
@@ -48,11 +48,10 @@ var number = '';
 function renderMain( data )
 {
 $( function(){
-
 var html = $.parseHTML( jsonPConvert( data ) );
 		var content =$( html ).find( '#byttutBM' );
  	   	//adjust result
- 		var tips = content.find( '.oppsgramordklassevindu' ).parent();
+ 		var tips = content.find( '.oppsgramordklassevindu div' );
     	tips.hide();
   		$( '#result-table' ).html( content.html() );
 
@@ -136,11 +135,16 @@ input
   text-decoration:none;
   cursor: hand;
   padding: 2px 10px 2px 10px;
-  background-color: #FBEFFF;
+  background-color: #DFE8F0;
   font-size: 1.2em;
   border: 1px solid;
   border-radius: 5px;
-  border-color:#cccccc
+  border-color:#999999
+}
+
+.oppsgramordklasse:active
+{
+   background-color: #666666;
 }
 
 .oppsgramordklasse:hover
@@ -160,7 +164,7 @@ input
   width: 100%;
 }
 
-#result-table td.my, #result-table td.pa
+#result-table td.my, #result-table td.pa,
 {
   display: none;
 }
