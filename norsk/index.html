@@ -47,7 +47,6 @@ function renderMain( data )
 {
 $( function(){
 
-
 var html = $.parseHTML( jsonPConvert( data ) );
 		var content =$( html ).find( '#byttutBM' );
  	   	//adjust result
@@ -63,7 +62,7 @@ var html = $.parseHTML( jsonPConvert( data ) );
 function renderTip( data )
 {
 $( function(){
-	 	tip.html( jsonPConvert( data ) );
+	 tip.html( jsonPConvert( data ) );
 } );
 }
 
@@ -76,7 +75,7 @@ $( document ).ready( function(){
 
   $("#word").focus();
 
-  var word = getParams();
+  var word = getParams().toLowerCase();
   if( word == '' )
   {
   	 return;
@@ -89,7 +88,7 @@ $( document ).ready( function(){
 function vise_fullformer( wordNumber )
 {
 $( function(){
-	var tip = $( '#opp_' + wordNumber);	 
+	tip = $( '#opp_' + wordNumber);	 
     if( tip.is(":visible") )
     {
     	tip.hide();
