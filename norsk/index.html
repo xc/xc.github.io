@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+Mobil versjon
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+<script>
+
+
+/*
+
+Copyright: the service is from 
+
+*/
+
+/**
+
+TODO: 1. auto prompt
+
+**/
+
+function request( url, callback )
+{
+ var yURL = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from html where url="' + url + '"') + '&format=xml&callback='+callback;
+ $.ajax( {url: yURL, dataType:'jsonp'} );
+}
+
+function getParams()
+{
+   var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1);
+   var result = '';
+   if( hashes.indexOf("word") > -1 )
+   {
+     result = hashes.split( '=' )[1].trim();
+   }
+   return result;
+}
+
+
+var tip = '';
+
+function renderMain( data )
+{
+$( function(){
+
+
+var html = $.parseHTML( jsonPConvert( data ) );
+		var content =$( html ).find( '#byttutBM' );
+ 	   	//adjust result
+ 		tips = content.find( '.oppsgramordklassevindu' ).find( 'div' );
+	    tips.html( '' );
+    	tips.hide();
+  		$( '#result-table' ).html( content.html() );
+
+
+} );
+}
+
+function renderTip( data )
+{
+$( function(){
+	 	tip.html( jsonPConvert( data ) );
+} );
+}
+
+
+function jsonPConvert( data) {
+    return data.results[0].replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');         
+}
+
+$( document ).ready( function(){
+
+  $("#word").focus();
+
+  var word = getParams();
+  if( word == '' )
+  {
+  	 return;
+  }
+  //send request
+  var url = "http://www.nob-ordbok.uio.no/perl/ordbok.cgi?OPP="+word+"&bokmaal=+&ordbok=bokmaal";
+  request( url, 'renderMain' );
+} );
+
+function vise_fullformer( wordNumber )
+{
+$( function(){
+	var tip = $( '#opp_' + wordNumber);	 
+    if( tip.is(":visible") )
+    {
+    	tip.hide();
+    }
+    else
+    {
+	var url = "http://www.nob-ordbok.uio.no/perl/bob_hente_paradigme.cgi?lid=" + wordNumber ;
+	tip.show();
+    request( url, 'renderTip' );
+	 }
+});
+}
+
+
+
+
+</script>
+
+<link href="http://no2014.uio.no/eNo/css/NOB_enkeltvisning.css" rel="stylesheet" type="text/css" />
+<link href="http://no2014.uio.no/eNo/css/NOB_paradigmer.css" rel="stylesheet" type="text/css" />
+
+
+<style>
+
+body{
+
+
+}
+
+input
+{
+   height: 25px;
+   font-size: 1em;
+}
+
+.oppsgramordklasse
+{
+  text-decoration:underline;
+  cursor: hand;
+}
+
+#result-table
+{
+  font-family: Arial;
+  font-size: 0.8em;  
+  width: 100%;
+}
+
+#result-table tr:first-child
+{
+  display: none;
+}
+
+.oppsgramordklassevindu
+{
+	display: initial;
+}
+
+.artikkelformat.utvidet.tiptip
+{
+	display: none;
+}
+
+.copyright
+{
+	font-family: Arial;
+    font-size: 0.65em;
+}
+
+</style>
+
+</head>
+<body>
+<form id="form" method="get">
+<input type="text" id="word" name="word" />
+<input type="submit" value=" Søk " />
+<div id="result">
+<table id="result-table">
+</table>
+</div>
+
+<div class="copyright">
+	<br />
+	This is for demo purpose, and will be removed before 18 August 2014(created on 12 August 2014) to solve the copyright issue. <br /><br />
+    This is a add-on i mobile for <a href="nob-ordbok.uio.no">UIO Ordbok</a>  <br />
+    All the content copyright belongs to <a href="http://www.nob-ordbok.uio.no/">University of Oslo and språkrådet</a>. <br />
+	Chen Xiongjie: <a href="http://twitter.com/xiongjie">@xiongjie</a>
+</div>
+</form>
+</body>
+<html>
