@@ -1,0 +1,17 @@
+body
+{
+    margin: 0 0 0 0;
+}
+
+.main
+{
+    border: 1px #cccccc solid;
+    margin: 2px 2px 2px 2px;
+}
+
+.canvas_move
+{
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}

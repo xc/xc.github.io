@@ -1,0 +1,25 @@
+<html>
+<head>
+    <script type="text/javascript" src="javascript/od.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet/od.css" />
+    <title>OD</title>
+</head>
+<body>
+    <div class="od">
+    <div class="tool"></div>
+    <div class="main">
+    <canvas id="canvas" class="canvas" width="700" height="700">
+
+    </canvas>
+    </div>
+    <div class="property"></div>
+    <div class="statusBar">
+        <div class="status"></div>
+        <div class="coordinate"></div>
+    </div>
+    </div>
+<script type="text/javascript">
+    od.init( document.getElementsByClassName( 'main' )[0], document.getElementById( 'canvas' ), document.getElementsByClassName( 'statusBar' )[0] );
+</script>
+</body>
+</html>

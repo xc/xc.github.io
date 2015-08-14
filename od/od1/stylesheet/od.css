@@ -1,0 +1,87 @@
+body
+{
+    margin: 0 0 0 0;
+}
+
+.tool, .main, .property, .statusBar
+{
+    margin: 1px 1px 1px 1px;
+    box-shadow: 1px 1px 1px #eeeeee;
+}
+
+.od
+{
+    margin: 2px 2px 2px 2px;
+    font-family: Arial;
+    height: 800px;
+    width: 900px;
+}
+
+.tool
+{
+    border:1px #cccccc solid;
+    width: 68px;
+    height: 100%;
+    font-family: Arial;
+    float: left;
+}
+
+.main
+{
+    display: inline-block;
+    border:1px #cccccc solid;
+    width: 90%;
+    height: 95%;
+    cursor: default;
+}
+
+.canvas
+{
+
+}
+
+.property
+{
+    clear: both;
+    border:1px solid #cccccc;
+    height: 80px;
+    background: #f7f7f7
+}
+
+.tool-icon
+{
+    margin: 1px;
+    width: 30px;
+    height: 30px;
+    border: #eeeeee 1px solid;
+    display: inline-block;
+}
+
+.statusBar
+{
+    height: 15px;
+    font-size:12px;
+    color: #666666;
+    padding: 5px;
+}
+
+.statusBar .status
+{
+    float: left;
+}
+
+.statusBar .coordinate
+{
+    float: right;
+}
+
+.tool-icon:hover
+{
+    opacity: 0.4;
+    border-color: #eeeeee;
+}
+
+.active
+{
+    border-color: #000000
+}
